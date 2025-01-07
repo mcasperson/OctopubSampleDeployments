@@ -1,0 +1,9 @@
+apiVersion: v2
+appVersion: 1.13.21
+description: Codefresh gitops runtime umbrella chart
+name: octopub-frontend-base
+version: 1.0.0
+dependencies:
+  - name: octopub-frontend
+    repository: https://octopus-sales-public-helm-repo.s3.ap-southeast-2.amazonaws.com/charts
+    version: 0.3.44
