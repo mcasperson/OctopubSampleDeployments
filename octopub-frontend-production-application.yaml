@@ -10,7 +10,7 @@ spec:
   project: default
   destination:
     name: in-cluster
-    namespace: octopub-frontend-production
+    namespace: octopub-production
   source:
     path: octopub/frontend/production
     repoURL: https://github.com/mcasperson/OctopubSampleDeployments.git

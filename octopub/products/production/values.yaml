@@ -1,0 +1,4 @@
+octopub-products-mysql:
+  image:
+    # This is the self-contained version of the products microservice that uses the H2 database
+    repository: octopussamples/octopub-products-microservice

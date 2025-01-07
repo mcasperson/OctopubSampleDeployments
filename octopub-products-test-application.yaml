@@ -1,9 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: octopub-frontend-test-application
+  name: octopub-products-test-application
   annotations:
-    codefresh.io/product: octopub-frontend
+    codefresh.io/product: octopub-products
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
@@ -12,7 +12,7 @@ spec:
     name: in-cluster
     namespace: octopub-test
   source:
-    path: octopub/frontend/test
+    path: octopub/products/test
     repoURL: https://github.com/mcasperson/OctopubSampleDeployments.git
     targetRevision: main
     helm:
