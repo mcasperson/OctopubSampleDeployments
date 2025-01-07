@@ -7,5 +7,5 @@ octopub-products-mysql:
   hosts:
     - host:
       paths:
-        - path: /development
+        - path: /development/api/products
           pathType: Prefix
