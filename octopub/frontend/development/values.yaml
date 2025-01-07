@@ -1,2 +1,4 @@
 octopub-frontend:
   overrideTheme: green
+  ingress:
+    enabled: true
