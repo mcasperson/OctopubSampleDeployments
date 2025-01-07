@@ -8,9 +8,9 @@ octopub-frontend:
   # The ingress is not created by default, so we enable it.
   ingress:
     enabled: true
-  # The frontend app is exposed via an ingress on an environment specific path.
-  hosts:
-    - host:
-      paths:
-        - path: /production
-          pathType: Prefix
+    # The frontend app is exposed via an ingress on an environment specific path.
+    hosts:
+      - host:
+        paths:
+          - path: /production
+            pathType: Prefix
