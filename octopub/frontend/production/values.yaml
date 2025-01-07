@@ -1,8 +1,14 @@
 octopub-frontend:
+  # This configures a unique color for the frontend application per environment.
+  # It means the different environments can be visually distinguished from each other.
   overrideTheme: blue
+  # The frontend app makes client based API requests to the products microservice.
+  # The products microservice is exposed via an ingress on an environment specific path.
   productEndpointOverride: /production/api/products
+  # The ingress is not created by default, so we enable it.
   ingress:
     enabled: true
+  # The frontend app is exposed via an ingress on an environment specific path.
   hosts:
     - host:
       paths:
