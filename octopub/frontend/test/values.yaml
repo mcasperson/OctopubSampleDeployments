@@ -1,4 +1,10 @@
 octopub-frontend:
   overrideTheme: orange
+  productEndpointOverride: /test/api/products
   ingress:
     enabled: true
+  hosts:
+    - host:
+      paths:
+        - path: /test
+          pathType: Prefix

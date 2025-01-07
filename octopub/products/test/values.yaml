@@ -4,3 +4,8 @@ octopub-products-mysql:
     repository: octopussamples/octopub-products-microservice
   ingress:
     enabled: true
+  hosts:
+    - host:
+      paths:
+        - path: /test
+          pathType: Prefix
