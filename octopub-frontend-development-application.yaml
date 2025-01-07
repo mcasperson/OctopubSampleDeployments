@@ -4,6 +4,7 @@ metadata:
   name: octopub-frontend-development-application
   annotations:
     codefresh.io/product: octopub-frontend
+    codefresh.io/app-group: octopub
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
