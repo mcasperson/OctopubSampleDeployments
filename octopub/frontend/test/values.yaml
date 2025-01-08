@@ -8,9 +8,14 @@ octopub-frontend:
   # The ingress is not created by default, so we enable it.
   ingress:
     enabled: true
+    # The services expect to be called from the root path. We have used the root path
+    # to identify the environment. This annotation ensures that the service thinks
+    # it was called from the root path.
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
     # The frontend app is exposed via an ingress on an environment specific path.
     hosts:
       - host:
         paths:
-          - path: /test
-            pathType: Prefix
+          - path: /test(/.*)
+            pathType: ImplementationSpecific

@@ -4,8 +4,13 @@ octopub-products-mysql:
     repository: octopussamples/octopub-products-microservice
   ingress:
     enabled: true
+    # The services expect to be called from the root path. We have used the root path
+    # to identify the environment. This annotation ensures that the service thinks
+    # it was called from the root path.
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
     hosts:
       - host:
         paths:
-          - path: /production/api/products
-            pathType: Prefix
+          - path: /production(/api/products(/.*)?)
+            pathType: ImplementationSpecific
