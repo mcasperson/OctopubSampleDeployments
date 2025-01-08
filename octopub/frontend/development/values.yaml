@@ -5,6 +5,9 @@ octopub-frontend:
   # The frontend app makes client based API requests to the products microservice.
   # The products microservice is exposed via an ingress on an environment specific path.
   productEndpointOverride: /development/api/products
+  service:
+    # The default is to create a LoadBalancer, but this is not required as we are using an ingress.
+    type: ClusterIP
   ingress:
     # The ingress is not created by default, so we enable it.
     enabled: true

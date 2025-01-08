@@ -2,6 +2,9 @@ octopub-products-mysql:
   image:
     # This is the self-contained version of the products microservice that uses the H2 database
     repository: octopussamples/octopub-products-microservice
+  service:
+    # The default is to create a LoadBalancer, but this is not required as we are using an ingress.
+    type: ClusterIP
   ingress:
     enabled: true
     # The services expect to be called from the root path. We have used the root path
