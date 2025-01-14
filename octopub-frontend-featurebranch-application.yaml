@@ -15,6 +15,12 @@ spec:
             secretName: github-token
             key: token
         requeueAfterSeconds: 300
+
+  ignoreApplicationDifferences:
+    - name: helm-params
+      jqPathExpressions:
+        - .spec.source.helm.parameters
+
   template:
     metadata:
       name: "octopub-frontend-{{.branch}}-application"
