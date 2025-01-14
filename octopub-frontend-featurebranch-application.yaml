@@ -24,33 +24,34 @@ spec:
         argocd-image-updater.argoproj.io/octopub.update-strategy: "latest"
         argocd-image-updater.argoproj.io/octopub.allow-tags: "regexp:^\\d+\\.\\d+\\.\\d+-{{.branch}}$"
         argocd-image-updater.argoproj.io/octopub.helm.image-tag: "image.tag"
-    project: default
-    destination:
-      name: in-cluster
-      namespace: octopub-development
-    source:
-      path: octopub/frontend/development
-      repoURL: https://github.com/mcasperson/OctopubSampleDeployments.git
-      targetRevision: main
-      helm:
-        valueFiles:
-          - values.yaml
-        valuesObject:
-          image:
-            tag: "latest"
-          # Feature branches are indicated by their pink theme
-          overrideTheme: pink
-    syncPolicy:
-      automated:
-        prune: false
-        selfHeal: false
-        allowEmpty: false
-      syncOptions:
-        - PrunePropagationPolicy=foreground
-        - Replace=false
-        - PruneLast=false
-        - Validate=true
-        - CreateNamespace=true
-        - ApplyOutOfSyncOnly=false
-        - ServerSideApply=true
-        - RespectIgnoreDifferences=false
+    spec:
+      project: default
+      destination:
+        name: in-cluster
+        namespace: octopub-development
+      source:
+        path: octopub/frontend/development
+        repoURL: https://github.com/mcasperson/OctopubSampleDeployments.git
+        targetRevision: main
+        helm:
+          valueFiles:
+            - values.yaml
+          valuesObject:
+            image:
+              tag: "latest"
+            # Feature branches are indicated by their pink theme
+            overrideTheme: pink
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: false
+          allowEmpty: false
+        syncOptions:
+          - PrunePropagationPolicy=foreground
+          - Replace=false
+          - PruneLast=false
+          - Validate=true
+          - CreateNamespace=true
+          - ApplyOutOfSyncOnly=false
+          - ServerSideApply=true
+          - RespectIgnoreDifferences=false
