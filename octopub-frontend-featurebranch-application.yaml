@@ -22,7 +22,7 @@ spec:
         # But as the CI builds new images, the image updater will pull the latest image.
         argocd-image-updater.argoproj.io/image-list: "octopub=octopussamples/octopub-frontend"
         argocd-image-updater.argoproj.io/octopub.update-strategy: "latest"
-        argocd-image-updater.argoproj.io/octopub.allow-tags: "regexp:^\d+\.\d+\.\d+-{{.branch}}$"
+        argocd-image-updater.argoproj.io/octopub.allow-tags: "regexp:^\\d+\\.\\d+\\.\\d+-{{.branch}}$"
         argocd-image-updater.argoproj.io/octopub.helm.image-tag: "image.tag"
     project: default
     destination:
