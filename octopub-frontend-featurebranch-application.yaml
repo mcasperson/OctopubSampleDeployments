@@ -36,15 +36,11 @@ spec:
         helm:
           valueFiles:
             - values.yaml
-          valuesObject:
-            # Feature branches are indicated by their pink theme
-            overrideTheme: pink
-            ingress:
-              hosts:
-                - host:
-                  paths:
-                    - path: /{{.branch}}(/.*)
-                      pathType: ImplementationSpecific
+          parameters:
+            - name: overrideTheme
+              value: pink
+            - name: octopub-frontend.ingress.hosts[0].paths[0].path
+              value: /{{.branch}}(/.*)
       syncPolicy:
         automated:
           prune: false
