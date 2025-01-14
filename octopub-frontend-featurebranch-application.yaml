@@ -41,8 +41,7 @@ spec:
         helm:
           valueFiles:
             - values.yaml
-          valuesObject:
-            # Feature branches are indicated by their pink theme
+          values: |
             overrideTheme: pink
             ingress:
               hosts:
