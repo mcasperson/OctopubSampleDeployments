@@ -38,6 +38,8 @@ spec:
         valuesObject:
           image:
             tag: "latest"
+          # Feature branches are indicated by their pink theme
+          overrideTheme: pink
     syncPolicy:
       automated:
         prune: false
