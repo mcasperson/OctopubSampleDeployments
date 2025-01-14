@@ -13,15 +13,15 @@ spec:
         requeueAfterSeconds: 180
   template:
     metadata:
-      name: octopub-frontend-featurebranch-application-{{.branch}}
+      name: "octopub-frontend-featurebranch-application-{{.branch}}"
       annotations:
-        codefresh.io/product: octopub-frontend
-        codefresh.io/app-group: octopub
+        codefresh.io/product: "octopub-frontend"
+        codefresh.io/app-group: "octopub"
         # Use the image updater to pull the latest image built against the feature branch.
         # The initial deployment will use the latest mainline version of the application.
         # But as the CI builds new images, the image updater will pull the latest image.
-        argocd-image-updater.argoproj.io/image-list: octopub=octopussamples/octopub-frontend
-        argocd-image-updater.argoproj.io/octopub.update-strategy: latest
+        argocd-image-updater.argoproj.io/image-list: "octopub=octopussamples/octopub-frontend"
+        argocd-image-updater.argoproj.io/octopub.update-strategy: "latest"
         argocd-image-updater.argoproj.io/octopub.allow-tags: "regexp:^\d+\.\d+\.\d+-{{.branch}}$"
         argocd-image-updater.argoproj.io/octopub.helm.image-tag: "image.tag"
     project: default
