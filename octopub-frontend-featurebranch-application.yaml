@@ -27,8 +27,8 @@ spec:
         argocd-image-updater.argoproj.io/image-list: "octopub=octopussamples/octopub-frontend"
         argocd-image-updater.argoproj.io/octopub.update-strategy: "latest"
         argocd-image-updater.argoproj.io/octopub.allow-tags: "regexp:^\\d+\\.\\d+\\.\\d+-{{.branch}}$"
-        argocd-image-updater.argoproj.io/octopub.helm.image-tag: "image.tag"
-        argocd-image-updater.argoproj.io/octopub.helm.image-name: "image.name"
+        argocd-image-updater.argoproj.io/octopub.helm.image-tag: "octopub-frontend.image.tag"
+        argocd-image-updater.argoproj.io/octopub.helm.image-name: "octopub-frontend.image.name"
     spec:
       project: default
       destination:
