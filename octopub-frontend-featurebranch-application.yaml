@@ -13,7 +13,7 @@ spec:
         requeueAfterSeconds: 180
   template:
     metadata:
-      name: "octopub-frontend-featurebranch-application-{{.branch}}"
+      name: "octopub-frontend-{{.branch}}-application"
       annotations:
         codefresh.io/product: "octopub-frontend"
         codefresh.io/app-group: "octopub"
