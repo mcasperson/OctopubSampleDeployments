@@ -42,13 +42,14 @@ spec:
           valueFiles:
             - values.yaml
           values: |
-            overrideTheme: pink
-            ingress:
-              hosts:
-                - host:
-                  paths:
-                    - path: /{{.branch}}(/.*)
-                      pathType: ImplementationSpecific
+            octopub-frontend:
+              overrideTheme: pink
+              ingress:
+                hosts:
+                  - host:
+                    paths:
+                      - path: /{{.branch}}(/.*)
+                        pathType: ImplementationSpecific
       syncPolicy:
         automated:
           prune: false
