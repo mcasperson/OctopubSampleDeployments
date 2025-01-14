@@ -10,7 +10,11 @@ spec:
         github:
           owner: OctopusSolutionsEngineering
           repo: Octopub
-        requeueAfterSeconds: 180
+          # kubectl create secret generic github-token -n codefresh --from-literal=token=ghp_blahblah
+          tokenRef:
+            secretName: github-token
+            key: token
+        requeueAfterSeconds: 1800
   template:
     metadata:
       name: "octopub-frontend-{{.branch}}-application"
