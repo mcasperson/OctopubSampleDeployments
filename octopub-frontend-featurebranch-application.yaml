@@ -17,8 +17,7 @@ spec:
         requeueAfterSeconds: 300
 
   ignoreApplicationDifferences:
-    - name: helm-params
-      jqPathExpressions:
+    - jqPathExpressions:
         - .spec.source.helm.parameters
 
   template:
