@@ -1,0 +1,54 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: octopub-frontend-featurebranch-application-set
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - pullRequest:
+        github:
+          owner: OctopusSolutionsEngineering
+          repo: Octopub
+        requeueAfterSeconds: 180
+  template:
+    metadata:
+      name: octopub-frontend-featurebranch-application-{{.branch}}
+      annotations:
+        codefresh.io/product: octopub-frontend
+        codefresh.io/app-group: octopub
+        # Use the image updater to pull the latest image built against the feature branch.
+        # The initial deployment will use the latest mainline version of the application.
+        # But as the CI builds new images, the image updater will pull the latest image.
+        argocd-image-updater.argoproj.io/image-list: octopub=octopussamples/octopub-frontend
+        argocd-image-updater.argoproj.io/octopub.update-strategy: latest
+        argocd-image-updater.argoproj.io/octopub.allow-tags: "regexp:^\d+\.\d+\.\d+-{{.branch}}$"
+        argocd-image-updater.argoproj.io/octopub.helm.image-tag: "image.tag"
+    project: default
+    destination:
+      name: in-cluster
+      namespace: octopub-development
+    source:
+      path: octopub/frontend/development
+      repoURL: https://github.com/mcasperson/OctopubSampleDeployments.git
+      targetRevision: main
+      helm:
+        valueFiles:
+          - values.yaml
+        valuesObject:
+          image:
+            tag: "latest"
+    syncPolicy:
+      automated:
+        prune: false
+        selfHeal: false
+        allowEmpty: false
+      syncOptions:
+        - PrunePropagationPolicy=foreground
+        - Replace=false
+        - PruneLast=false
+        - Validate=true
+        - CreateNamespace=true
+        - ApplyOutOfSyncOnly=false
+        - ServerSideApply=true
+        - RespectIgnoreDifferences=false
