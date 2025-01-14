@@ -41,6 +41,11 @@ spec:
               tag: "latest"
             # Feature branches are indicated by their pink theme
             overrideTheme: pink
+            hosts:
+              - host:
+                paths:
+                  - path: /{{.branch}}(/.*)
+                    pathType: ImplementationSpecific
       syncPolicy:
         automated:
           prune: false
