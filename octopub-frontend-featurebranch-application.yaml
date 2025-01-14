@@ -20,9 +20,7 @@ spec:
   ignoreApplicationDifferences:
     - jqPathExpressions:
       - .spec.source.helm.parameters
-      - .spec.source.helm.values
       - .spec.sources[] | .helm.parameters
-      - .spec.sources[] | .helm.values
 
   template:
     metadata:
