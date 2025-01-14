@@ -16,9 +16,13 @@ spec:
             key: token
         requeueAfterSeconds: 300
 
+  # https://github.com/argoproj/argo-cd/issues/16276
   ignoreApplicationDifferences:
     - jqPathExpressions:
-        - .spec.source.helm.parameters
+      - .spec.source.helm.parameters
+      - .spec.source.helm.values
+      - .spec.sources[] | .helm.parameters
+      - .spec.sources[] | .helm.values
 
   template:
     metadata:
