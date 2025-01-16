@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: git-pat-obtainer-github
+  namespace: codefresh
   labels:
     codefresh_io_entity: git-pat-obtainer
     codefresh_io_git_provider: github
