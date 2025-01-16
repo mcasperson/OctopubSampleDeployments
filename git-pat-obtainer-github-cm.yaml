@@ -8,13 +8,13 @@ metadata:
 data:
   config: |
     provider: github
-    mode: CUSTOM
+    mode: CODEFRESH
     appName: ''
     secret:
-      name: github-oauth2
-      namespace: codefresh
+      name: ''
+      namespace: ''
       path:
-        appId: appId
-        clientId: clientId
-        clientSecret: clientSecret
-        url: url
+        appId: ''
+        clientId: ''
+        clientSecret: ''
+        url: ''
